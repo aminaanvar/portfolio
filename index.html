@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Amina Anvar Portfolio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: left-aligned editorial column; case studies as course "modules" with a progress rail, matching the navy/teal of the CV */
+:root{
+  --bg:#f6f8f9; --surface:#ffffff; --ink:#15263a; --muted:#56677a; --line:#d9e1e6;
+  --navy:#1f3a5f; --teal:#2e7d8c; --teal-soft:#e3f1f3; --chip:#eef2f5;
+  --display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body:"Public Sans", "Segoe UI", system-ui, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0f1820; --surface:#16222d; --ink:#e6edf2; --muted:#9fb0bf; --line:#2a3a48;
+  --navy:#9cc3e8; --teal:#5fc0cf; --teal-soft:#183640; --chip:#1d2c39; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1820; --surface:#16222d; --ink:#e6edf2; --muted:#9fb0bf; --line:#2a3a48;
+  --navy:#9cc3e8; --teal:#5fc0cf; --teal-soft:#183640; --chip:#1d2c39; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16.5px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1040px;margin:0 auto}
+a{color:var(--teal)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:4px}
+h1,h2,h3{font-family:var(--display);color:var(--navy);text-wrap:balance;margin:0;line-height:1.15}
+p{margin:0}
+.label{font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal)}
+
+/* top bar */
+.top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-block:22px;border-bottom:1px solid var(--line)}
+.top .name{font-family:var(--display);font-weight:700;color:var(--navy);font-size:18px}
+.top nav{display:flex;gap:18px;flex-wrap:wrap;font-size:14.5px}
+.top nav a{color:var(--muted);text-decoration:none}
+.top nav a:hover{color:var(--teal)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.4fr 1fr;gap:48px;padding-block:64px 56px;align-items:end}
+.hero h1{font-size:clamp(36px,6vw,60px);font-weight:700;letter-spacing:-.02em}
+.hero h1 span{color:var(--teal)}
+.hero .lede{margin-top:20px;font-size:18.5px;color:var(--muted);max-width:58ch}
+.hero .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:8px;font-weight:600;font-size:15px;text-decoration:none;border:1px solid var(--navy);cursor:pointer;font-family:var(--body)}
+.btn.primary{background:var(--navy);color:var(--bg)}
+.btn.ghost{background:transparent;color:var(--navy)}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.fact{background:var(--surface);padding:18px}
+.fact b{display:block;font-family:var(--display);font-size:30px;color:var(--navy);font-variant-numeric:tabular-nums;line-height:1.1}
+.fact span{font-size:13.5px;color:var(--muted)}
+
+.avail{display:inline-flex;align-items:center;gap:8px;background:var(--teal-soft);color:var(--navy);font-size:14px;font-weight:600;padding:6px 12px;border-radius:999px}
+.avail .dot{width:8px;height:8px;border-radius:50%;background:#2f9e6a;box-shadow:0 0 0 3px rgba(47,158,106,.2)}
+.bring{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.bring .card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:24px;display:flex;flex-direction:column;gap:10px}
+.bring h3{font-size:20px}
+.bring p{color:var(--muted);font-size:15.5px;flex:1}
+.proof{font-size:14px;font-weight:600;color:var(--teal);border-top:1px solid var(--line);padding-top:10px}
+.nudge{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;background:var(--teal-soft);border-radius:12px;padding:20px 24px;margin-bottom:56px}
+.nudge p{font-size:17px;color:var(--ink)}
+.nudge b{color:var(--navy)}
+/* sections */
+section{padding-block:56px;border-top:1px solid var(--line)}
+.sec-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:32px}
+.sec-head h2{font-size:clamp(26px,3.6vw,36px);margin-top:6px}
+.sec-head p{color:var(--muted);max-width:46ch}
+
+/* case studies as modules */
+.modules{display:grid;gap:22px}
+.module{background:var(--surface);border:1px solid var(--line);border-radius:12px;display:grid;grid-template-columns:240px 1fr;overflow:hidden}
+.module aside{background:var(--teal-soft);padding:24px;display:flex;flex-direction:column;gap:14px}
+.module aside .where{font-weight:600;color:var(--navy)}
+.module aside .when{font-size:14px;color:var(--muted)}
+.stat b{display:block;font-family:var(--display);font-size:34px;color:var(--navy);line-height:1;font-variant-numeric:tabular-nums}
+.stat span{font-size:13.5px;color:var(--muted)}
+.module .body{padding:26px 28px;min-width:0;display:grid;gap:16px}
+.module h3{font-size:23px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.step{border-top:2px solid var(--teal);padding-top:10px}
+.step h4{margin:0 0 4px;font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);font-weight:500}
+.step p{font-size:15px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:var(--chip);color:var(--ink);font-size:13px;padding:4px 10px;border-radius:999px}
+
+/* before/after nav mock */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.mock{border:1px solid var(--line);border-radius:8px;padding:12px;background:var(--bg);font-size:13px}
+.mock .cap{font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.mock .row{display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:6px;margin-bottom:4px;background:var(--surface);border:1px solid var(--line)}
+.mock .row.dim{opacity:.55;border-style:dashed}
+.mock .ico{width:18px;height:18px;border-radius:4px;display:grid;place-items:center;font-size:10px;font-weight:700;color:var(--bg);flex:none}
+.i-v{background:var(--teal)} .i-r{background:var(--navy)} .i-a{background:#c07a2c} .i-q{background:#7a5bb0}
+.mock .tabs{display:flex;gap:4px;margin-bottom:8px;flex-wrap:wrap}
+.mock .tabs span{padding:3px 8px;border-radius:5px;background:var(--chip);font-size:12px}
+.mock .tabs span.on{background:var(--navy);color:var(--bg)}
+
+/* approach */
+.approach{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;counter-reset:a}
+.approach div{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px}
+.approach div::before{counter-increment:a;content:counter(a,decimal-leading-zero);font-family:var(--mono);color:var(--teal);font-size:13px}
+.approach h3{font-size:18px;margin:8px 0 6px}
+.approach p{font-size:15px;color:var(--muted)}
+
+/* experience */
+.timeline{display:grid;gap:0}
+.job{display:grid;grid-template-columns:170px 1fr;gap:24px;padding-block:20px;border-bottom:1px solid var(--line)}
+.job:last-child{border-bottom:0}
+.job .dates{font-family:var(--mono);font-size:13.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.job h3{font-size:19px}
+.job .org{color:var(--teal);font-weight:500;margin:2px 0 8px}
+.job p{color:var(--muted);font-size:15.5px;max-width:68ch}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.skill-group h3{font-size:16px;margin-bottom:10px}
+.edu{margin-top:36px;display:grid;grid-template-columns:repeat(2,1fr);gap:12px 28px}
+.edu div{font-size:15px}
+.edu b{display:block;color:var(--ink)}
+.edu span{color:var(--muted);font-size:14px}
+
+/* contact */
+.contact{background:var(--navy);color:var(--bg);border-radius:14px;padding:40px;display:grid;grid-template-columns:1.3fr 1fr;gap:28px;align-items:center;margin-block:56px}
+.contact h2{color:var(--bg);font-size:clamp(26px,3.6vw,34px)}
+.contact p{opacity:.85;margin-top:10px}
+.contact .lines{display:grid;gap:10px}
+.cline{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;background:rgba(255,255,255,.08);border-radius:8px;padding:10px 14px;font-size:15px}
+.cline span{user-select:all;word-break:break-all}
+.cline a{color:var(--bg)}
+.copy{background:var(--bg);color:var(--navy);border:0;border-radius:6px;padding:5px 10px;font-weight:600;font-size:13px;cursor:pointer;font-family:var(--body)}
+footer{padding-block:0 40px;color:var(--muted);font-size:13.5px}
+
+@media (max-width:860px){
+  .hero,.contact{grid-template-columns:1fr}
+  .module{grid-template-columns:1fr}
+  .module aside{flex-direction:row;flex-wrap:wrap;gap:18px 28px}
+  .approach{grid-template-columns:1fr 1fr}
+  .bring{grid-template-columns:1fr}
+  .skills{grid-template-columns:1fr 1fr}
+}
+@media (max-width:560px){
+  .steps,.compare,.approach,.skills,.edu{grid-template-columns:1fr}
+  .job{grid-template-columns:1fr;gap:6px}
+  .contact{padding:26px}
+  .module .body{padding:22px 20px}
+}
+@media (prefers-reduced-motion:no-preference){.btn{transition:transform .15s}.btn:hover{transform:translateY(-1px)}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="top">
+    <div class="name">Amina Anvar</div>
+    <nav aria-label="Sections">
+      <a href="#work">Work</a><a href="#approach">Approach</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <div>
+      <div class="avail"><span class="dot" aria-hidden="true"></span>Available for new roles · UK-based · open to relocating</div>
+      <h1 style="margin-top:16px">I design and build online learning that is <span>clear and easy to use.</span></h1>
+      <p class="lede">I'm Amina, a learning technologist. I turn complex material into clear digital learning, set up platforms properly, and train people so they stop needing hand-holding. I've done it for the University of Cambridge, for financial regulators in 150+ countries, and for health staff across a whole Indian state.</p>
+      <div class="actions">
+        <a class="btn primary" href="#contact">Get in touch</a>
+        <a class="btn ghost" href="#work">See my work</a>
+      </div>
+    </div>
+    <div class="facts" aria-label="Highlights">
+      <div class="fact"><b>3,800+</b><span>financial regulators reached through Cambridge SupTech Lab events</span></div>
+      <div class="fact"><b>14</b><span>districts reached by the Kerala health staff e-learning platform</span></div>
+      <div class="fact"><b>8</b><span>Cambridge courses rebuilt on one navigation template</span></div>
+      <div class="fact"><b>100%</b><span>of Fii programme launches delivered on time</span></div>
+    </div>
+  </div>
+
+  <section id="bring">
+    <div class="sec-head">
+      <div><div class="label">For your team</div><h2>What I bring</h2></div>
+      <p>Three problems teams usually hire me to solve, and the proof that I have solved them before.</p>
+    </div>
+    <div class="bring">
+      <div class="card"><h3>Learning people actually use</h3><p>Complex topics turned into short, interactive content in Articulate 360, H5P and video, built with your subject-matter experts and accessible by default.</p><div class="proof">Proof: 8 Cambridge courses rebuilt after exit surveys flagged navigation.</div></div>
+      <div class="card"><h3>Platforms set up properly</h3><p>Moodle configured around how your programmes really run: groups, enrolment, roles, completion rules and templates that make every new course quicker.</p><div class="proof">Proof: 5 programmes a year at Fii, every launch on time.</div></div>
+      <div class="card"><h3>Users who don't need hand-holding</h3><p>Guides, how-to videos and train-the-trainer sessions so staff and learners can help themselves, and support requests go down.</p><div class="proof">Proof: 20+ tutors trained to run their own courses.</div></div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="sec-head">
+      <div><div class="label">Case studies</div><h2>Selected work</h2></div>
+      <p>Each one starts with a real problem learners or colleagues had, and ends with something that still works without me in the room.</p>
+    </div>
+
+    <div class="modules">
+      <article class="module">
+        <aside>
+          <div><div class="where">University of Cambridge</div><div class="when">CCAF · 2023–2025</div></div>
+          <div class="stat"><b>8</b><span>courses on one template</span></div>
+          <div class="stat"><b>Top</b><span>exit-survey theme addressed</span></div>
+        </aside>
+        <div class="body">
+          <div class="label">Course restructure &amp; navigation</div>
+          <h3>Making every course easy to find your way around</h3>
+          <div class="steps">
+            <div class="step"><h4>Spotted</h4><p>Exit surveys across all cohorts showed learners wanted easier navigation through the courses.</p></div>
+            <div class="step"><h4>Did</h4><p>Traced the root causes: hidden activities, content in hard-to-find places and links that needed updating. Cleaned these up and built clearer navigation with JavaScript and internal CSS, within the platform's limits.</p></div>
+            <div class="step"><h4>Result</h4><p>A standard template now followed by all eight courses. Learners find resources quickly and the team can add new material easily.</p></div>
+          </div>
+          <div class="compare" aria-label="Illustration of course page before and after">
+            <div class="mock">
+              <div class="cap">Before</div>
+              <div class="row">▸ Week 1 (accordion)</div>
+              <div class="row dim">Hidden activity · reached by link</div>
+              <div class="row dim">Hidden activity · reached by link</div>
+              <div class="row">▸ Week 2 (accordion)</div>
+            </div>
+            <div class="mock">
+              <div class="cap">After</div>
+              <div class="tabs"><span class="on">Week 1</span><span>Week 2</span><span>Week 3</span></div>
+              <div class="row"><span class="ico i-v">▶</span>Introductory video</div>
+              <div class="row"><span class="ico i-r">R</span>Core reading</div>
+              <div class="row"><span class="ico i-q">?</span>Knowledge check</div>
+            </div>
+          </div>
+          <div class="chips"><span class="chip">Moodle</span><span class="chip">JavaScript</span><span class="chip">CSS</span><span class="chip">Survey analysis</span><span class="chip">Templates</span></div>
+        </div>
+      </article>
+
+      <article class="module">
+        <aside>
+          <div><div class="where">Financial Innovation Impact</div><div class="when">2025–present</div></div>
+          <div class="stat"><b>5</b><span>programmes a year, 2 cohorts each</span></div>
+          <div class="stat"><b>20+</b><span>mentors and tutors trained</span></div>
+        </aside>
+        <div class="body">
+          <div class="label">Templates &amp; self-serve learning</div>
+          <h3>From building every course by hand to a tested starting point</h3>
+          <div class="steps">
+            <div class="step"><h4>Spotted</h4><p>The same set-up work and the same tutor questions came up with every new course.</p></div>
+            <div class="step"><h4>Did</h4><p>Built a standard Moodle course template, documented the upload, QA and delivery workflow, and recorded how-to videos and step-by-step guides for common tasks.</p></div>
+            <div class="step"><h4>Result</h4><p>Every launch on time. Tutors run their courses independently and support requests fell.</p></div>
+          </div>
+          <div class="chips"><span class="chip">Articulate Rise</span><span class="chip">H5P</span><span class="chip">Explainer video</span><span class="chip">Train-the-trainer</span><span class="chip">Power BI</span></div>
+        </div>
+      </article>
+
+      <article class="module">
+        <aside>
+          <div><div class="where">University of Cambridge</div><div class="when">SupTech Lab</div></div>
+          <div class="stat"><b>150+</b><span>countries of participants</span></div>
+          <div class="stat"><b>95%+</b><span>attendance at Lab Week webinars</span></div>
+        </aside>
+        <div class="body">
+          <div class="label">Onboarding international learners</div>
+          <h3>Making sure every participant can get in and take part</h3>
+          <div class="steps">
+            <div class="step"><h4>Onboard</h4><p>Grouped participants, bulk-enrolled them in MoodleCloud and sent login credentials from the platform.</p></div>
+            <div class="step"><h4>Check</h4><p>Reviewed participant data before launch. Where Vimeo was blocked, as in Indonesia, provided videos through Panopto or Google Drive.</p></div>
+            <div class="step"><h4>Schedule</h4><p>Checked countries and dates so live sessions avoided national holidays and religious or cultural festivals.</p></div>
+          </div>
+          <div class="chips"><span class="chip">MoodleCloud</span><span class="chip">Bulk enrolment</span><span class="chip">Panopto</span><span class="chip">Zoom</span><span class="chip">Live event delivery</span></div>
+        </div>
+      </article>
+
+      <article class="module">
+        <aside>
+          <div><div class="where">C-DIT, India</div><div class="when">2020–2022</div></div>
+          <div class="stat"><b>14</b><span>districts reached</span></div>
+          <div class="stat"><b>5</b><span>Moodle platforms built</span></div>
+        </aside>
+        <div class="body">
+          <div class="label">Platform build &amp; rollout</div>
+          <h3>An e-learning platform for health staff across Kerala</h3>
+          <div class="steps">
+            <div class="step"><h4>Built</h4><p>Installed and configured Moodle from scratch for the National Health Mission (Kerala), with a mobile-friendly site and app.</p></div>
+            <div class="step"><h4>Designed</h4><p>Created training courses for clinical and non-clinical staff with H5P activities, quizzes, questionnaires and Qualtrics surveys.</p></div>
+            <div class="step"><h4>Launched</h4><p>Onboarded staff in groups by bulk upload, managed roles and permissions, and tested every release before go-live.</p></div>
+          </div>
+          <div class="chips"><span class="chip">Moodle</span><span class="chip">PHP</span><span class="chip">SQL</span><span class="chip">Mobile app</span><span class="chip">Award-winning Bhoomi Malayalam</span></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <div class="nudge">
+    <p><b>Need something like this for your team?</b> I'd be glad to talk it through.</p>
+    <a class="btn primary" href="#contact">Contact me</a>
+  </div>
+
+  <section id="approach">
+    <div class="sec-head">
+      <div><div class="label">How I work</div><h2>My approach</h2></div>
+      <p>Confident users who don't need someone beside them at every step.</p>
+    </div>
+    <div class="approach">
+      <div><h3>Start with the learner</h3><p>Talk to subject-matter experts, check participant data, and map what each group actually needs to do.</p></div>
+      <div><h3>Keep it consistent</h3><p>Clear templates and navigation so that once people learn one course, they know them all.</p></div>
+      <div><h3>Build for self-service</h3><p>Short guides, how-to videos and interactive content people can come back to, with live training where it adds most.</p></div>
+      <div><h3>Measure and improve</h3><p>Use surveys, completion data and recurring questions to decide what to change next. AI helps with first drafts; I review everything.</p></div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="sec-head">
+      <div><div class="label">Career</div><h2>Experience</h2></div>
+    </div>
+    <div class="timeline">
+      <div class="job"><div class="dates">Dec 2025 – Present</div><div><h3>Learning Technologist &amp; Technical Coordinator</h3><div class="org">Financial Innovation Impact (Fii)</div><p>Lead programmes from requirements to launch, configure Moodle, build interactive content and train mentors and tutors.</p></div></div>
+      <div class="job"><div class="dates">Jul 2023 – Dec 2025</div><div><h3>Learning Technologist</h3><div class="org">University of Cambridge</div><p>Onboarding, course design and live technical delivery for international cohorts, including the Cambridge SupTech Lab.</p></div></div>
+      <div class="job"><div class="dates">Jan 2020 – Jan 2022</div><div><h3>Web Application Developer</h3><div class="org">Centre for Development of Imaging Technology (C-DIT), India</div><p>Built and rolled out Moodle-based platforms, including the National Health Mission (Kerala) e-learning platform.</p></div></div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="sec-head">
+      <div><div class="label">Toolkit</div><h2>Skills &amp; education</h2></div>
+    </div>
+    <div class="skills">
+      <div class="skill-group"><h3>Learning design &amp; authoring</h3><div class="chips"><span class="chip">Articulate 360</span><span class="chip">Rise</span><span class="chip">Storyline</span><span class="chip">H5P</span><span class="chip">SCORM</span><span class="chip">Canva</span><span class="chip">WCAG</span></div></div>
+      <div class="skill-group"><h3>Platforms &amp; delivery</h3><div class="chips"><span class="chip">Moodle</span><span class="chip">MoodleCloud</span><span class="chip">Panopto</span><span class="chip">Vimeo</span><span class="chip">Teams</span><span class="chip">Zoom</span><span class="chip">BigBlueButton</span></div></div>
+      <div class="skill-group"><h3>Data &amp; technical</h3><div class="chips"><span class="chip">Power BI</span><span class="chip">Excel</span><span class="chip">Qualtrics</span><span class="chip">Dynamics</span><span class="chip">Airtable</span><span class="chip">HTML/CSS/JS</span><span class="chip">PHP</span><span class="chip">SQL</span></div></div>
+    </div>
+    <div class="edu">
+      <div><b>Data Technician Level 3 Apprenticeship (Distinction)</b><span>Multiverse, UK · 2025–2026</span></div>
+      <div><b>M.Sc. Big Data and Business Intelligence</b><span>University of Greenwich, UK · 2022–2023</span></div>
+      <div><b>Professional Certificate in Web Application Development</b><span>KELTRON, India · 2019</span></div>
+      <div><b>B.Tech. Electronics and Communication Engineering</b><span>Marian Engineering College, India · 2013–2017</span></div>
+    </div>
+  </section>
+
+  <div class="contact" id="contact">
+    <div>
+      <h2>Hiring for learning technology, digital learning or training?</h2>
+      <p>I'm available now for UK roles, on-site, hybrid or remote, and open to relocating. Send me a message and tell me what your team needs.</p>
+    </div>
+    <div class="lines">
+      <div class="cline"><span id="em">amijes.amina005@gmail.com</span><button class="copy" type="button" data-copy="em">Copy</button></div>
+      <div class="cline"><span id="ph">+44 7442 757865</span><button class="copy" type="button" data-copy="ph">Copy</button></div>
+      <div class="cline"><a href="https://linkedin.com/in/aminaanvar" target="_blank" rel="noopener">linkedin.com/in/aminaanvar</a></div>
+    </div>
+  </div>
+
+  <footer>© 2026 Amina Anvar</footer>
+</div>
+
+<script>
+document.querySelectorAll('.copy').forEach(function(b){
+  b.addEventListener('click',function(){
+    var el=document.getElementById(b.dataset.copy), t=el.textContent;
+    var done=function(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy'},1500)};
+    var sel=function(){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected'};
+    try{navigator.clipboard.writeText(t).then(done,sel)}catch(e){sel()}
+  });
+});
+</script>
+</body>
+</html>
