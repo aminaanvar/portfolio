@@ -64,6 +64,71 @@ p{margin:0}
 .nudge{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;background:var(--teal-soft);border-radius:12px;padding:20px 24px;margin-bottom:56px}
 .nudge p{font-size:17px;color:var(--ink)}
 .nudge b{color:var(--navy)}
+.idbox{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px}
+.idtabs{display:flex;gap:6px;flex-wrap:wrap;background:var(--chip);padding:5px;border-radius:10px;width:fit-content;max-width:100%;margin-bottom:24px}
+.idtabs button{border:0;background:transparent;color:var(--muted);font:600 14.5px var(--body);padding:8px 14px;border-radius:7px;cursor:pointer}
+.idtabs button[aria-selected="true"]{background:var(--surface);color:var(--navy);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.addie{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;position:relative}
+.addie::before{content:"";position:absolute;left:10%;right:10%;top:30px;height:2px;background:var(--line)}
+.node{position:relative;background:transparent;border:0;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:8px;font-family:var(--body);color:var(--muted);padding:0}
+.node b{width:60px;height:60px;border-radius:50%;display:grid;place-items:center;background:var(--surface);border:2px solid var(--line);font:700 24px var(--display);color:var(--navy)}
+.node span{font-size:14px;font-weight:600}
+.node.on b{background:var(--navy);border-color:var(--navy);color:var(--bg)}
+.node.on span{color:var(--navy)}
+.node:hover b{border-color:var(--teal)}
+.detail{margin-top:22px;background:var(--teal-soft);border-radius:10px;padding:16px 18px;min-height:96px}
+.detail h4{margin:0 0 4px;font:700 18px var(--display);color:var(--navy)}
+.detail p{font-size:15.5px;color:var(--ink)}
+.detail .chips{margin-top:10px}
+.detail .chip{background:var(--surface)}
+.bloomwrap{display:grid;grid-template-columns:1.1fr 1fr;gap:22px;align-items:center}
+.bloomwrap .detail{margin-top:0}
+.bloom{display:flex;flex-direction:column;align-items:center;gap:5px}
+.lvl{width:var(--w);border:0;border-radius:6px;padding:9px 6px;font:600 14px var(--body);cursor:pointer;background:var(--chip);color:var(--navy)}
+.lvl:nth-child(1){background:color-mix(in srgb,var(--teal) 90%,var(--surface))}
+.lvl:nth-child(2){background:color-mix(in srgb,var(--teal) 75%,var(--surface))}
+.lvl:nth-child(3){background:color-mix(in srgb,var(--teal) 60%,var(--surface))}
+.lvl:nth-child(4){background:color-mix(in srgb,var(--teal) 45%,var(--surface))}
+.lvl:nth-child(5){background:color-mix(in srgb,var(--teal) 30%,var(--surface))}
+.lvl:nth-child(6){background:color-mix(in srgb,var(--teal) 18%,var(--surface))}
+.lvl.on{outline:3px solid var(--navy);outline-offset:2px}
+.stages{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap}
+.stage{border:2px solid var(--line);background:var(--surface);border-radius:12px;padding:16px 22px;cursor:pointer;display:flex;align-items:center;gap:12px;font-family:var(--body);color:var(--ink)}
+.stage b{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--chip);color:var(--navy);font:700 17px var(--display)}
+.stage span{font-weight:600;font-size:16px}
+.stage.on{border-color:var(--navy)}
+.stage.on b{background:var(--navy);color:var(--bg)}
+.arrow{color:var(--teal);font-size:22px}
+.principles{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.principles span{font-size:13.5px;color:var(--navy);border:1px solid var(--line);border-radius:999px;padding:5px 12px;background:var(--surface)}
+.tap-hint{display:flex;align-items:center;gap:10px;background:var(--navy);color:var(--bg);border-radius:9px;padding:10px 14px;font-size:14.5px;margin-bottom:20px}
+.tap-hint svg{flex:none}
+.tap-hint b{font-weight:700}
+@media (prefers-reduced-motion:no-preference){
+  .idbox:not(.used) [data-group] button:not(.on):not(.node),.idbox:not(.used) .node:not(.on) b{animation:nudge 2.4s ease-in-out infinite}
+  .idbox:not(.used) .tap-hint svg{animation:tap 1.6s ease-in-out infinite}
+  @keyframes nudge{0%,100%{box-shadow:0 0 0 0 transparent}50%{box-shadow:0 0 0 4px color-mix(in srgb,var(--teal) 35%,transparent)}}
+  @keyframes tap{0%,100%{transform:translateY(0)}50%{transform:translateY(3px)}}
+}
+.lvl,.stage,.tile{border-radius:12px}
+.node:focus-visible{outline:none}.node:focus-visible b{outline:2px solid var(--teal);outline-offset:3px}
+.toolwrap{display:grid;grid-template-columns:1.2fr 1fr;gap:22px;align-items:center}
+.toolwrap .detail{margin-top:0}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.tile{border:2px solid var(--line);background:var(--surface);border-radius:12px;padding:16px 10px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:8px;font-family:var(--body);color:var(--ink)}
+.tile b{width:40px;height:40px;border-radius:10px;display:grid;place-items:center;background:var(--chip);color:var(--navy);font:700 18px var(--display)}
+.tile span{font-size:14px;font-weight:600;text-align:center}
+.tile:hover{border-color:var(--teal)}
+.tile.on{border-color:var(--navy)}
+.tile.on b{background:var(--navy);color:var(--bg)}
+.frameworks{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:28px}
+.fw{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:22px;display:flex;flex-direction:column;gap:8px}
+.fw h3{font-size:21px}
+.fw p{color:var(--muted);font-size:15px}
+.know{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line)}
+.know div{padding:20px 22px 22px 0;border-bottom:1px solid var(--line)}
+.know h3{font-size:18px;margin-bottom:6px}
+.know p{color:var(--muted);font-size:15px}
 /* sections */
 section{padding-block:56px;border-top:1px solid var(--line)}
 .sec-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:32px}
@@ -116,7 +181,7 @@ section{padding-block:56px;border-top:1px solid var(--line)}
 .job p{color:var(--muted);font-size:15.5px;max-width:68ch}
 
 /* skills */
-.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.skills{display:grid;grid-template-columns:repeat(2,1fr);gap:24px 32px}
 .skill-group h3{font-size:16px;margin-bottom:10px}
 .edu{margin-top:36px;display:grid;grid-template-columns:repeat(2,1fr);gap:12px 28px}
 .edu div{font-size:15px}
@@ -140,10 +205,15 @@ footer{padding-block:0 40px;color:var(--muted);font-size:13.5px}
   .module aside{flex-direction:row;flex-wrap:wrap;gap:18px 28px}
   .approach{grid-template-columns:1fr 1fr}
   .bring{grid-template-columns:1fr}
+  .know{grid-template-columns:1fr 1fr}
+  .frameworks{grid-template-columns:1fr}
   .skills{grid-template-columns:1fr 1fr}
 }
 @media (max-width:560px){
-  .steps,.compare,.approach,.skills,.edu{grid-template-columns:1fr}
+  .steps,.compare,.approach,.skills,.edu,.know,.bloomwrap,.toolwrap{grid-template-columns:1fr}
+  .tiles{grid-template-columns:repeat(2,1fr)}
+  .addie{gap:4px}.node b{width:46px;height:46px;font-size:19px}.node span{font-size:12px}.addie::before{top:23px}
+  .arrow{transform:rotate(90deg)}.stages{flex-direction:column}
   .job{grid-template-columns:1fr;gap:6px}
   .contact{padding:26px}
   .module .body{padding:22px 20px}
@@ -157,7 +227,7 @@ footer{padding-block:0 40px;color:var(--muted);font-size:13.5px}
   <header class="top">
     <div class="name">Amina Anvar</div>
     <nav aria-label="Sections">
-      <a href="#work">Work</a><a href="#approach">Approach</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#contact">Contact</a>
+      <a href="#work">Work</a><a href="#design">Design</a><a href="#tools">Tools</a><a href="#data">Data</a><a href="#approach">Approach</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#contact">Contact</a>
     </nav>
   </header>
 
@@ -165,29 +235,28 @@ footer{padding-block:0 40px;color:var(--muted);font-size:13.5px}
     <div>
       <div class="avail"><span class="dot" aria-hidden="true"></span>Available for new roles · UK-based · open to relocating</div>
       <h1 style="margin-top:16px">I design and build online learning that is <span>clear and easy to use.</span></h1>
-      <p class="lede">I'm Amina, a learning technologist. I turn complex material into clear digital learning, set up platforms properly, and train people so they stop needing hand-holding. I've done it for the University of Cambridge, for financial regulators in 150+ countries, and for health staff across a whole Indian state.</p>
+      <p class="lede">I'm Amina, a learning technologist. I turn complex material into clear digital learning, set up platforms properly, and train people so they stop needing hand-holding. I've done it for the University of Cambridge, for financial regulators in 160+ countries, and for health staff across a whole Indian state.</p>
       <div class="actions">
         <a class="btn primary" href="#contact">Get in touch</a>
         <a class="btn ghost" href="#work">See my work</a>
       </div>
     </div>
     <div class="facts" aria-label="Highlights">
-      <div class="fact"><b>3,800+</b><span>financial regulators reached through Cambridge SupTech Lab events</span></div>
-      <div class="fact"><b>14</b><span>districts reached by the Kerala health staff e-learning platform</span></div>
-      <div class="fact"><b>8</b><span>Cambridge courses rebuilt on one navigation template</span></div>
-      <div class="fact"><b>100%</b><span>of Fii programme launches delivered on time</span></div>
+      <div class="fact"><b>4,500+</b><span>learners managed across online programmes</span></div>
+      <div class="fact"><b>55,000+</b><span>clinical and non-clinical health staff supported on the Kerala e-learning platform</span></div>
+      <div class="fact"><b>17</b><span>courses built</span></div>
+      <div class="fact"><b>100%</b><span>of course launches delivered on time</span></div>
     </div>
   </div>
 
   <section id="bring">
     <div class="sec-head">
       <div><div class="label">For your team</div><h2>What I bring</h2></div>
-      <p>Three problems teams usually hire me to solve, and the proof that I have solved them before.</p>
     </div>
     <div class="bring">
-      <div class="card"><h3>Learning people actually use</h3><p>Complex topics turned into short, interactive content in Articulate 360, H5P and video, built with your subject-matter experts and accessible by default.</p><div class="proof">Proof: 8 Cambridge courses rebuilt after exit surveys flagged navigation.</div></div>
-      <div class="card"><h3>Platforms set up properly</h3><p>Moodle configured around how your programmes really run: groups, enrolment, roles, completion rules and templates that make every new course quicker.</p><div class="proof">Proof: 5 programmes a year at Fii, every launch on time.</div></div>
-      <div class="card"><h3>Users who don't need hand-holding</h3><p>Guides, how-to videos and train-the-trainer sessions so staff and learners can help themselves, and support requests go down.</p><div class="proof">Proof: 20+ tutors trained to run their own courses.</div></div>
+      <div class="card"><h3>Learning people actually use</h3><p>Complex topics turned into short, interactive content in Articulate 360 (Rise and Storyline), H5P and video, built with your subject-matter experts and accessible by default.</p><div class="proof">Proof: 8 Cambridge courses rebuilt after exit surveys flagged navigation.</div></div>
+      <div class="card"><h3>Platforms set up properly</h3><p>Moodle configured around how your programmes really run: groups, enrolment, roles, completion rules and templates that make every new course quicker.</p><div class="proof">Proof: 17 courses in total, every launch on time.</div></div>
+      <div class="card"><h3>Users who don't need hand-holding</h3><p>Guides, how-to videos and train-the-trainer sessions so staff and learners can help themselves, and support requests go down.</p><div class="proof">Proof: 20+ mentors and tutors trained at the Cambridge SupTech Lab.</div></div>
     </div>
   </section>
 
@@ -235,8 +304,8 @@ footer{padding-block:0 40px;color:var(--muted);font-size:13.5px}
       <article class="module">
         <aside>
           <div><div class="where">Financial Innovation Impact</div><div class="when">2025–present</div></div>
-          <div class="stat"><b>5</b><span>programmes a year, 2 cohorts each</span></div>
-          <div class="stat"><b>20+</b><span>mentors and tutors trained</span></div>
+          <div class="stat"><b>4</b><span>courses delivered</span></div>
+          <div class="stat"><b>100%</b><span>launched on time</span></div>
         </aside>
         <div class="body">
           <div class="label">Templates &amp; self-serve learning</div>
@@ -244,17 +313,17 @@ footer{padding-block:0 40px;color:var(--muted);font-size:13.5px}
           <div class="steps">
             <div class="step"><h4>Spotted</h4><p>The same set-up work and the same tutor questions came up with every new course.</p></div>
             <div class="step"><h4>Did</h4><p>Built a standard Moodle course template, documented the upload, QA and delivery workflow, and recorded how-to videos and step-by-step guides for common tasks.</p></div>
-            <div class="step"><h4>Result</h4><p>Every launch on time. Tutors run their courses independently and support requests fell.</p></div>
+            <div class="step"><h4>Result</h4><p>All four courses launched on time from the same tested starting point, with colleagues able to follow the documented workflow.</p></div>
           </div>
-          <div class="chips"><span class="chip">Articulate Rise</span><span class="chip">H5P</span><span class="chip">Explainer video</span><span class="chip">Train-the-trainer</span><span class="chip">Power BI</span></div>
+          <div class="chips"><span class="chip">Articulate Rise</span><span class="chip">H5P</span><span class="chip">Explainer video</span><span class="chip">Power BI</span></div>
         </div>
       </article>
 
       <article class="module">
         <aside>
           <div><div class="where">University of Cambridge</div><div class="when">SupTech Lab</div></div>
-          <div class="stat"><b>150+</b><span>countries of participants</span></div>
-          <div class="stat"><b>95%+</b><span>attendance at Lab Week webinars</span></div>
+          <div class="stat"><b>160+</b><span>countries of participants</span></div>
+          <div class="stat"><b>20+</b><span>mentors and tutors trained</span></div>
         </aside>
         <div class="body">
           <div class="label">Onboarding international learners</div>
@@ -264,23 +333,24 @@ footer{padding-block:0 40px;color:var(--muted);font-size:13.5px}
             <div class="step"><h4>Check</h4><p>Reviewed participant data before launch. Where Vimeo was blocked, as in Indonesia, provided videos through Panopto or Google Drive.</p></div>
             <div class="step"><h4>Schedule</h4><p>Checked countries and dates so live sessions avoided national holidays and religious or cultural festivals.</p></div>
           </div>
-          <div class="chips"><span class="chip">MoodleCloud</span><span class="chip">Bulk enrolment</span><span class="chip">Panopto</span><span class="chip">Zoom</span><span class="chip">Live event delivery</span></div>
+          <p>I also trained more than 20 mentors and tutors through live demonstrations and train-the-trainer sessions, backed by how-to videos and step-by-step guides, so they could run their courses independently.</p>
+          <div class="chips"><span class="chip">MoodleCloud</span><span class="chip">Bulk enrolment</span><span class="chip">Train-the-trainer</span><span class="chip">Panopto</span><span class="chip">Zoom</span></div>
         </div>
       </article>
 
       <article class="module">
         <aside>
           <div><div class="where">C-DIT, India</div><div class="when">2020–2022</div></div>
-          <div class="stat"><b>14</b><span>districts reached</span></div>
-          <div class="stat"><b>5</b><span>Moodle platforms built</span></div>
+          <div class="stat"><b>55,000+</b><span>health staff supported</span></div>
+          <div class="stat"><b>Award</b><span>Best e-learning platform</span></div>
         </aside>
         <div class="body">
           <div class="label">Platform build &amp; rollout</div>
-          <h3>An e-learning platform for health staff across Kerala</h3>
+          <h3>The first e-learning portal for health staff in Kerala's National Health Mission</h3>
           <div class="steps">
-            <div class="step"><h4>Built</h4><p>Installed and configured Moodle from scratch for the National Health Mission (Kerala), with a mobile-friendly site and app.</p></div>
+            <div class="step"><h4>Built</h4><p>Developed the first e-learning portal for clinical and non-clinical staff of the National Health Mission (Kerala), installing and configuring Moodle from scratch with a mobile-friendly site and app.</p></div>
             <div class="step"><h4>Designed</h4><p>Created training courses for clinical and non-clinical staff with H5P activities, quizzes, questionnaires and Qualtrics surveys.</p></div>
-            <div class="step"><h4>Launched</h4><p>Onboarded staff in groups by bulk upload, managed roles and permissions, and tested every release before go-live.</p></div>
+            <div class="step"><h4>Launched</h4><p>Onboarded staff in groups by bulk upload, managed roles and permissions, and tested every release before go-live. The portal went on to support more than 55,000 health staff and won a best e-learning platform award.</p></div>
           </div>
           <div class="chips"><span class="chip">Moodle</span><span class="chip">PHP</span><span class="chip">SQL</span><span class="chip">Mobile app</span><span class="chip">Award-winning Bhoomi Malayalam</span></div>
         </div>
@@ -292,6 +362,104 @@ footer{padding-block:0 40px;color:var(--muted);font-size:13.5px}
     <p><b>Need something like this for your team?</b> I'd be glad to talk it through.</p>
     <a class="btn primary" href="#contact">Contact me</a>
   </div>
+
+  <section id="design">
+    <div class="sec-head">
+      <div><div class="label">Knowledge</div><h2>Instructional design</h2></div>
+      <p>How I turn expert knowledge into learning people can follow and apply.</p>
+    </div>
+    <div class="idbox">
+      <div class="tap-hint"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M9 11V5a2 2 0 1 1 4 0v5h1.5a2 2 0 0 1 2 .2l1.8 1.3a2 2 0 0 1 .8 1.9l-.7 4.6A3 3 0 0 1 15.4 21h-4.2a3 3 0 0 1-2.4-1.2L5.6 15.5a1.8 1.8 0 0 1 2.6-2.5L9 13.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Interactive:</b> click or tap any item below to see how I use it</span></div>
+      <div class="idtabs" role="tablist" aria-label="Frameworks">
+        <button type="button" role="tab" id="t-addie" aria-selected="true" data-tab="addie">ADDIE</button>
+        <button type="button" role="tab" id="t-bloom" aria-selected="false" data-tab="bloom">Bloom's Taxonomy</button>
+        <button type="button" role="tab" id="t-back" aria-selected="false" data-tab="back">Backward design</button>
+      </div>
+
+      <div class="idpanel" data-panel="addie" role="tabpanel" aria-labelledby="t-addie">
+        <div class="addie" data-group="addie">
+          <button type="button" class="node on" data-t="Analyse" data-d="Learner personas, participant data and conversations with subject-matter experts." data-tags="Personas|SMEs|Participant data"><b>A</b><span>Analyse</span></button>
+          <button type="button" class="node" data-t="Design" data-d="Clear outcomes, mapped to activities and assessments." data-tags="Learning outcomes|Assessment mapping|Templates"><b>D</b><span>Design</span></button>
+          <button type="button" class="node" data-t="Develop" data-d="Short, interactive content, accessible by default." data-tags="Rise|Storyline|H5P|WCAG"><b>D</b><span>Develop</span></button>
+          <button type="button" class="node" data-t="Implement" data-d="Tested courses with clear navigation and smooth onboarding." data-tags="Navigation|Bulk enrolment|Testing"><b>I</b><span>Implement</span></button>
+          <button type="button" class="node" data-t="Evaluate" data-d="Surveys and completion data shape the next version." data-tags="Exit surveys|Completion data|Power BI"><b>E</b><span>Evaluate</span></button>
+        </div>
+        <div class="detail" aria-live="polite"></div>
+      </div>
+
+      <div class="idpanel" data-panel="bloom" role="tabpanel" aria-labelledby="t-bloom" hidden>
+        <div class="bloomwrap">
+          <div class="bloom" data-group="bloom">
+            <button type="button" class="lvl" style="--w:40%" data-t="Create" data-d="Final projects or action plans learners take back to work." data-tags="design|propose|plan">Create</button>
+            <button type="button" class="lvl" style="--w:52%" data-t="Evaluate" data-d="Scenario decisions with feedback on every choice." data-tags="assess|justify|decide">Evaluate</button>
+            <button type="button" class="lvl" style="--w:64%" data-t="Analyse" data-d="Case studies drawn from real situations." data-tags="compare|examine|break down">Analyse</button>
+            <button type="button" class="lvl" style="--w:76%" data-t="Apply" data-d="Practice tasks and H5P interactive scenarios." data-tags="use|demonstrate|solve">Apply</button>
+            <button type="button" class="lvl" style="--w:88%" data-t="Understand" data-d="Explainer videos with short reflection questions." data-tags="explain|summarise|describe">Understand</button>
+            <button type="button" class="lvl on" style="--w:100%" data-t="Remember" data-d="Quick knowledge-check quizzes." data-tags="define|list|recall">Remember</button>
+          </div>
+          <div class="detail" aria-live="polite"></div>
+        </div>
+      </div>
+
+      <div class="idpanel" data-panel="back" role="tabpanel" aria-labelledby="t-back" hidden>
+        <div class="stages" data-group="back">
+          <button type="button" class="stage on" data-t="1. Outcome" data-d="What must learners be able to do by the end?" data-tags="Start here"><b>1</b><span>Outcome</span></button>
+          <span class="arrow" aria-hidden="true">→</span>
+          <button type="button" class="stage" data-t="2. Evidence" data-d="How will we know? I decide the assessment before the content." data-tags="Assessment first"><b>2</b><span>Evidence</span></button>
+          <span class="arrow" aria-hidden="true">→</span>
+          <button type="button" class="stage" data-t="3. Learning" data-d="Only then I plan the content and activities that lead there." data-tags="Content last"><b>3</b><span>Learning</span></button>
+        </div>
+        <div class="detail" aria-live="polite"></div>
+      </div>
+    </div>
+    <div class="principles">
+      <span>Accessible by default (WCAG)</span><span>Short, focused content</span><span>Consistent templates</span><span>Mobile-friendly</span>
+    </div>
+  </section>
+
+  <section id="tools">
+    <div class="sec-head">
+      <div><div class="label">Toolkit in use</div><h2>Media, AI &amp; project tools</h2></div>
+      <p>The tools I use to produce content and keep projects on track.</p>
+    </div>
+    <div class="idbox">
+      <div class="tap-hint"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M9 11V5a2 2 0 1 1 4 0v5h1.5a2 2 0 0 1 2 .2l1.8 1.3a2 2 0 0 1 .8 1.9l-.7 4.6A3 3 0 0 1 15.4 21h-4.2a3 3 0 0 1-2.4-1.2L5.6 15.5a1.8 1.8 0 0 1 2.6-2.5L9 13.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Interactive:</b> click or tap any item below to see how I use it</span></div>
+      <div class="idpanel toolwrap">
+        <div class="tiles" data-group="tools">
+          <button type="button" class="tile on" data-t="Articulate 360" data-d="Rise for mobile-friendly modules, Storyline for interactive scenarios, packaged as SCORM." data-tags="Rise|Storyline|SCORM"><b>A</b><span>Articulate 360</span></button>
+          <button type="button" class="tile" data-t="Video &amp; audio" data-d="Explainer and how-to videos with clear audio and captions." data-tags="Explainers|Walkthroughs|Captions"><b>&#9654;</b><span>Video &amp; audio</span></button>
+          <button type="button" class="tile" data-t="Canva &amp; Venngage" data-d="Infographics, course visuals and quick-reference guides." data-tags="Infographics|Job aids|Visuals"><b>&#9632;</b><span>Canva &amp; Venngage</span></button>
+          <button type="button" class="tile" data-t="Vimeo" data-d="Video hosting in Moodle, with Panopto or Google Drive where Vimeo is blocked." data-tags="Hosting|Panopto|Google Drive"><b>V</b><span>Vimeo</span></button>
+          <button type="button" class="tile" data-t="Generative AI" data-d="First drafts of guides and quizzes, feedback summaries and Excel fixes. I review everything." data-tags="Drafting|Summarising|Reviewed"><b>&#10022;</b><span>Generative AI</span></button>
+          <button type="button" class="tile" data-t="Wrike" data-d="Planning course builds, tracking deadlines and keeping stakeholders updated." data-tags="Planning|Tasks|Stakeholders"><b>W</b><span>Wrike</span></button>
+        </div>
+        <div class="detail" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="data">
+    <div class="sec-head">
+      <div><div class="label">Data</div><h2>Power BI, data &amp; validation</h2></div>
+      <p>How learner data moves from raw records to reports.</p>
+    </div>
+    <div class="idbox">
+      <div class="tap-hint"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M9 11V5a2 2 0 1 1 4 0v5h1.5a2 2 0 0 1 2 .2l1.8 1.3a2 2 0 0 1 .8 1.9l-.7 4.6A3 3 0 0 1 15.4 21h-4.2a3 3 0 0 1-2.4-1.2L5.6 15.5a1.8 1.8 0 0 1 2.6-2.5L9 13.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Interactive:</b> click or tap any item below to see how I use it</span></div>
+      <div class="idpanel">
+        <div class="addie" data-group="data">
+          <button type="button" class="node on" data-t="Validate" data-d="Data validation rules and Power Query clean-up before any bulk upload." data-tags="Excel|Power Query|Duplicates check"><b>1</b><span>Validate</span></button>
+          <button type="button" class="node" data-t="Cross-check" data-d="Records reconciled across Moodle, Excel, Dynamics and Airtable." data-tags="Moodle|Dynamics|Airtable"><b>2</b><span>Cross-check</span></button>
+          <button type="button" class="node" data-t="One source of truth" data-d="One database from registration to certification, 2019 to 2026." data-tags="Registration|Completion|Certification"><b>3</b><span>Centralise</span></button>
+          <button type="button" class="node" data-t="Power BI" data-d="Dashboards on progress and completion for stakeholder reports." data-tags="Dashboards|Completion|Commonwealth reports"><b>4</b><span>Report</span></button>
+          <button type="button" class="node" data-t="Survey insight" data-d="Feedback and exit surveys analysed for the next improvement." data-tags="Qualtrics|Exit surveys|Themes"><b>5</b><span>Improve</span></button>
+        </div>
+        <div class="detail" aria-live="polite"></div>
+      </div>
+    </div>
+    <div class="principles">
+      <span>M.Sc. Big Data &amp; Business Intelligence</span><span>Level 3 Data Technician (Distinction)</span><span>Secure access via roles &amp; permissions</span>
+    </div>
+  </section>
 
   <section id="approach">
     <div class="sec-head">
@@ -311,8 +479,8 @@ footer{padding-block:0 40px;color:var(--muted);font-size:13.5px}
       <div><div class="label">Career</div><h2>Experience</h2></div>
     </div>
     <div class="timeline">
-      <div class="job"><div class="dates">Dec 2025 – Present</div><div><h3>Learning Technologist &amp; Technical Coordinator</h3><div class="org">Financial Innovation Impact (Fii)</div><p>Lead programmes from requirements to launch, configure Moodle, build interactive content and train mentors and tutors.</p></div></div>
-      <div class="job"><div class="dates">Jul 2023 – Dec 2025</div><div><h3>Learning Technologist</h3><div class="org">University of Cambridge</div><p>Onboarding, course design and live technical delivery for international cohorts, including the Cambridge SupTech Lab.</p></div></div>
+      <div class="job"><div class="dates">Dec 2025 – Present</div><div><h3>Learning Technologist &amp; Technical Coordinator</h3><div class="org">Financial Innovation Impact (Fii)</div><p>Lead courses from requirements to launch, configure Moodle, build interactive content and report on learner data in Power BI.</p></div></div>
+      <div class="job"><div class="dates">Jul 2023 – Dec 2025</div><div><h3>Learning Technologist</h3><div class="org">University of Cambridge</div><p>Onboarding, course design, tutor training and live technical delivery for international cohorts, including the Cambridge SupTech Lab.</p></div></div>
       <div class="job"><div class="dates">Jan 2020 – Jan 2022</div><div><h3>Web Application Developer</h3><div class="org">Centre for Development of Imaging Technology (C-DIT), India</div><p>Built and rolled out Moodle-based platforms, including the National Health Mission (Kerala) e-learning platform.</p></div></div>
     </div>
   </section>
@@ -324,6 +492,7 @@ footer{padding-block:0 40px;color:var(--muted);font-size:13.5px}
     <div class="skills">
       <div class="skill-group"><h3>Learning design &amp; authoring</h3><div class="chips"><span class="chip">Articulate 360</span><span class="chip">Rise</span><span class="chip">Storyline</span><span class="chip">H5P</span><span class="chip">SCORM</span><span class="chip">Canva</span><span class="chip">WCAG</span></div></div>
       <div class="skill-group"><h3>Platforms &amp; delivery</h3><div class="chips"><span class="chip">Moodle</span><span class="chip">MoodleCloud</span><span class="chip">Panopto</span><span class="chip">Vimeo</span><span class="chip">Teams</span><span class="chip">Zoom</span><span class="chip">BigBlueButton</span></div></div>
+      <div class="skill-group"><h3>Media, AI &amp; project tools</h3><div class="chips"><span class="chip">Video production</span><span class="chip">Audio &amp; voiceover</span><span class="chip">Canva</span><span class="chip">Venngage</span><span class="chip">Vimeo</span><span class="chip">Generative AI</span><span class="chip">Wrike</span></div></div>
       <div class="skill-group"><h3>Data &amp; technical</h3><div class="chips"><span class="chip">Power BI</span><span class="chip">Excel</span><span class="chip">Qualtrics</span><span class="chip">Dynamics</span><span class="chip">Airtable</span><span class="chip">HTML/CSS/JS</span><span class="chip">PHP</span><span class="chip">SQL</span></div></div>
     </div>
     <div class="edu">
@@ -358,6 +527,27 @@ document.querySelectorAll('.copy').forEach(function(b){
     try{navigator.clipboard.writeText(t).then(done,sel)}catch(e){sel()}
   });
 });
+
+(function(){
+  function show(group){
+    var on=group.querySelector('.on'); var panel=group.closest('.idpanel'); var d=panel.querySelector('.detail');
+    var tags=on.dataset.tags.split('|').map(function(t){return '<span class="chip">'+t+'</span>'}).join('');
+    d.innerHTML='<h4>'+on.dataset.t+'</h4><p>'+on.dataset.d+'</p><div class="chips">'+tags+'</div>';
+  }
+  document.querySelectorAll('[data-group]').forEach(function(g){
+    g.querySelectorAll('button').forEach(function(b){
+      b.addEventListener('click',function(){g.querySelectorAll('button').forEach(function(x){x.classList.remove('on')});b.classList.add('on');show(g)});
+    });
+    show(g);
+  });
+  var tabs=document.querySelectorAll('.idtabs button');
+  tabs.forEach(function(t){t.addEventListener('click',function(){
+    tabs.forEach(function(x){x.setAttribute('aria-selected',x===t?'true':'false')});
+    document.querySelectorAll('#design .idpanel').forEach(function(p){p.hidden=p.dataset.panel!==t.dataset.tab});
+  })});
+})();
+
+document.querySelectorAll('.idbox').forEach(function(box){box.addEventListener('click',function(e){if(e.target.closest('button'))box.classList.add('used')})});
 </script>
 </body>
 </html>
